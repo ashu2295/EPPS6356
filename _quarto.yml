@@ -3,12 +3,12 @@ project:
   output-dir: docs
 
 website:
-  title: "EPPS6356"
+  title: "Assitant to the Regional Manager"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - Assignment 1.qmd
 
 format:
   html:
