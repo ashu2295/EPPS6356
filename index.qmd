@@ -2,4 +2,6 @@
 title: "EPPS6356"
 ---
 
-Website for posting the assignments for the Fall 2023 class: EPPS 6356 - Data Visualization taught by Karl Ho.
+```{r}
+# Website for posting the assignments for the Fall 2023 class: EPPS 6356 - Data Visualization taught by Karl Ho.
+```
