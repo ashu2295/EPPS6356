@@ -173,7 +173,8 @@ QUESTION 4
 # cheese consumption. The number on the right y-axis is the number of deaths.
 # Data on x-axis is from the year 2000-2009. Cheese consumption is red in color. 
 # Bedsheet Tanglings is black in color. Highest deaths happened in the Year 2009. 
-# Highest Cheese Consumption happened in # the Year 2008 and it was north of 33lbs. # It's quite evident that cheese  consumption has one-to-one relation with the 
+# Highest Cheese Consumption happened in # the Year 2008 and it was north of 33lbs
+# It's quite evident that cheese  consumption has one-to-one relation with the 
 # deaths happened by bedsheet tangling. So next time when you are munching on 
 # cheese, keep this trivia in mind.
 ```
