@@ -47,3 +47,26 @@ ggplot(fruit_data, aes(x = Fruit, y = Quantity)) +
   labs(title = "Fruit Sales", x = "Fruit", y = "Quantity Sold") +
   theme_minimal()
 ```
+
+```{r}
+library(ggplot2)
+
+# Create a data frame with the sales data, including additional fruits
+sales_data <- data.frame(
+  Fruit = c("Small Apples", "Medium Apples", "Large Apples", "Small Oranges", "Large Oranges", "Small Bananas", "Large Bananas"),
+  Quantity = c(10, 15, 20, 8, 25, 12, 18)
+)
+
+# Create a horizontal bar chart using ggplot2
+horizontal_bar_chart <- ggplot(sales_data, aes(x = Quantity, y = Fruit)) +
+  geom_bar(stat = "identity", fill = "skyblue4") +
+  labs(
+    title = "Horizontal Bar Chart",
+    x = "Quantity Sold",
+    y = "Fruit"
+  ) +
+  theme_minimal()
+
+# Display the horizontal bar chart
+print(horizontal_bar_chart)
+```
