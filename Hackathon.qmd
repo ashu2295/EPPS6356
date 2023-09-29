@@ -49,7 +49,6 @@ ggplot(fruit_data, aes(x = Fruit, y = Quantity)) +
 ```
 
 ```{r}
-library(ggplot2)
 
 # Create a data frame with the sales data, including additional fruits
 sales_data <- data.frame(
