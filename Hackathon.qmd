@@ -1,3 +1,7 @@
+---
+Hackathon
+---
+
 ```{r}
 library(ggplot2)
 products <- c("Product A", "Product B", "Product C")
