@@ -1,0 +1,45 @@
+```{r}
+library(ggplot2)
+products <- c("Product A", "Product B", "Product C")
+revenue <- c(5000, 8000, 6500)
+product_data <- data.frame(Product = products, Revenue = revenue)
+
+# Create a column chart
+ggplot(product_data, aes(x = Product, y = Revenue)) +
+  geom_col(fill = "green") +
+  labs(title = "Product Revenue", x = "Product", y = "Revenue (USD)") +
+  theme_minimal()
+
+```
+
+```{r}
+
+sales_data <- data.frame(
+  Fruit = c("Small Apples", "Medium Apples", "Large Apples", "Small Oranges", "Large Oranges"),
+  Quantity = c(10, 15, 20, 8, 25),
+  Width = c(0.3, 0.5, 0.7, 0.3, 0.7)  # Specify the widths for each bar
+)
+
+variable_width_chart <- ggplot(sales_data, aes(x = Fruit, y = Quantity, width = Width)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(
+    title = "Variable-Width Column Chart",
+    x = "Fruit",
+    y = "Quantity Sold"
+  ) +
+  theme_minimal()  # Use a minimal theme for better visibility
+  
+print(variable_width_chart)
+```
+
+```{r}
+fruits <- c("Apples", "Oranges", "Bananas")
+quantity <- c(25, 30, 20)
+fruit_data <- data.frame(Fruit = fruits, Quantity = quantity)
+
+# Create a bar chart
+ggplot(fruit_data, aes(x = Fruit, y = Quantity)) +
+  geom_bar(stat = "identity", fill = "skyblue") +
+  labs(title = "Fruit Sales", x = "Fruit", y = "Quantity Sold") +
+  theme_minimal()
+```
