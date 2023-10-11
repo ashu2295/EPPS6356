@@ -9,7 +9,8 @@ website:
       - href: index.qmd
         text: Home
       - Assignment 1.qmd
-      - Hackathon.qmd
+      - Assignment 4.qmd
+      - Assignment 5.qmd
 
 format:
   html:

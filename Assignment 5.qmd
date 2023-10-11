@@ -1,0 +1,166 @@
+---
+title: "Assignment 5"
+---
+
+```{r}
+# Create a sample dataset
+data <- rnorm(100)
+
+# Create a histogram
+hist(data, main="Histogram", xlab="Value", ylab="Frequency", col="lightblue", border="black")
+
+```
+
+```{r}
+# Create a sample dataset
+categories <- c("Category A", "Category B", "Category C")
+values <- c(30, 45, 60)
+
+# Create a bar chart
+barplot(values, names.arg=categories, main="Bar Chart", horiz = TRUE, xlab="Category", ylab="Value", col="lightblue")
+
+```
+
+```{r}
+
+```
+
+```{r}
+# Create a sample dataset
+categories <- c("Category A", "Category B", "Category C")
+values <- c(30, 45, 60)
+
+# Create a horizontal bar chart
+barplot(values, names.arg=categories, main="Horizontal Bar Chart", xlab="Value", ylab="Category", col="lightblue")
+
+```
+
+```{r}
+# Create a sample dataset
+categories <- c("Category A", "Category B", "Category C")
+values <- c(30, 45, 60)
+
+# Create a pie chart
+pie(values, labels=categories, main="Pie Chart", col=c("lightblue", "lightgreen", "lightcoral"))
+
+```
+
+```{r}
+# Create a sample dataset
+data <- list(a=rnorm(100), b=rnorm(100, mean=2), c=rnorm(100, mean=3))
+
+# Create a box plot
+boxplot(data, main="Box Plot", xlab="Group", ylab="Value", col=c("lightblue", "lightgreen", "lightcoral"))
+
+```
+
+```{r}
+# Create a sample dataset
+x <- rnorm(50)
+y <- rnorm(50)
+
+# Create a scatter plot
+plot(x, y, main="Scatter Plot", xlab="X-axis", ylab="Y-axis", col="blue", pch=19)
+
+```
+
+```{r}
+library(ggplot2)
+
+# Create a sample dataset
+data <- data.frame(Value=rnorm(100))
+
+
+histogram <- ggplot(data=data, aes(x=Value, fill = categories)) +
+  geom_histogram(binwidth=0.5, fill="lightblue", color="black") +
+  labs(title="Histogram", x="Value", y="Frequency") +
+theme(plot.background = element_rect(color = "black", size = 1)) + 
+   scale_fill_manual(values = c("lightblue", "lightgreen", "lightcoral")) +
+  guides(fill = guide_legend(title = "Categories"))
+ # theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+histogram
+
+################
+
+# Create a sample dataset
+categories <- c("Category A", "Category B", "Category C")
+values <- c(30, 45, 60)
+data <- data.frame(Category=categories, Value=values)
+
+# Create a bar chart
+#barplot(values, names.arg=categories, main="Bar Chart", horiz = TRUE, xlab="Category", ylab="Value", col="lightblue")
+
+ggplot(data=data, aes(x=Category, y =Value)) +
+  geom_bar(fill="navyblue", color="black", stat="identity") +
+  labs(title="Vertical Bar Plot", x="Category", y="Value") + 
+  coord_flip()
+
+ggplot(data=data, aes(x=Category, y=Value)) +
+  geom_bar(stat="identity", fill="lightblue") +
+  labs(title="Bar Chart", x="Category", y="Value") 
+  
+
+################
+
+
+# Create a sample dataset
+categories <- c("Category A", "Category B", "Category C")
+values <- c(30, 45, 60)
+data <- data.frame(Category=categories, Value=values)
+
+# Create a pie chart
+ggplot(data=data, aes(x="", y=Value, fill=Category)) +
+  geom_bar(stat="identity") +
+  coord_polar(theta="y") +
+  labs(title="Pie Chart")
+
+##################
+
+
+
+data <- data.frame(Group=rep(c("A", "B", "C"), each=100),
+                   Value=c(rnorm(100), rnorm(100, mean=2), rnorm(100, mean=3)))
+
+# Create a box plot
+ggplot(data=data, aes(x=Group, y=Value, fill=Group)) +
+  geom_boxplot() +
+  labs(title="Box Plot", x="Group", y="Value")
+
+###################
+
+
+# Create a sample dataset
+data <- data.frame(X=rnorm(50), Y=rnorm(50))
+
+# Create a scatter plot
+ggplot(data=data, aes(x=X, y=Y)) +
+  geom_point(shape=19, color="blue") +
+  labs(title="Scatter Plot", x="X-axis", y="Y-axis") +
+  theme(axis.text.y = element_text(angle = 45, hjust = 1))
+
+####################
+
+
+
+```
+
+```{r}
+ggsave("pie_chart.pdf", plot = histogram, device = "pdf")
+
+
+ggsave("pie_chart.jpg", plot = histogram, device = "jpeg", dpi = 300)  
+
+library(svglite)
+ggsave("pie_chart.svg", plot = histogram, device = "svg")
+
+
+
+ggsave("pie_chart.tiff", plot = histogram, device = "tiff")
+
+
+ggsave("pie_chart.bmp", plot = histogram, device = "bmp")
+
+
+
+```

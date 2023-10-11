@@ -2,6 +2,10 @@
 title: "Assignment 1"
 ---
 
+```{r}
+
+```
+
 QUESTION 1
 
 ```{r}
@@ -71,9 +75,9 @@ par(op)
 
 QUESTION 2
 
-![[Generative Art - A](https://www.abstractment.art/?pgid=l2dk2hxf-78dee78c-cc7b-4184-ad16-d0d17e11f731)](Generative Art Example 1.png)
+![[Generative Art - A](https://www.abstractment.art/?pgid=l2dk2hxf-78dee78c-cc7b-4184-ad16-d0d17e11f731)](Generative%20Art%20Example%201.png)
 
-![[Generative Art - B](https://drawpaintacademy.com/wp-content/uploads/2020/09/Fraser-Island-Drama-2020-1200W.jpg)](Generative Art Example 2.jpg)
+![[Generative Art - B](https://drawpaintacademy.com/wp-content/uploads/2020/09/Fraser-Island-Drama-2020-1200W.jpg)](Generative%20Art%20Example%202.jpg)
 
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
@@ -179,9 +183,8 @@ QUESTION 4
 # cheese, keep this trivia in mind.
 ```
 
----
+------------------------------------------------------------------------
 
-
----
+------------------------------------------------------------------------
 
 [![Cheese Consumption leads to death by getting tangled in the bedsheet](chart.png)](https://www.tylervigen.com/images/hatch2.png)
