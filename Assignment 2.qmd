@@ -1,0 +1,151 @@
+---
+title: "Assignment 2"
+---
+
+```{r}
+
+```
+
+Question 1
+
+```{r}
+plot(pressure, pch=9)  # Can you change pch? - 'pch value changed to 9 from 16.'
+text(150, 600, 
+     "Pressure (mm Hg)\nversus\nTemperature (Celsius)")
+
+
+```
+
+Pch value changed to 9 from the default value in the code 16. It changed the shape of the symbols plotted in the above graph.
+
+```{r}
+# Setting the parameter (3 rows by 2 cols)
+par(mfrow=c(3, 2))
+
+# Scatterplot
+# Note the incremental additions
+
+x <- c(0.5, 2, 4, 8, 12, 16)
+y1 <- c(1, 1.3, 1.9, 3.4, 3.9, 4.8)
+y2 <- c(4, .8, .5, .45, .4, .3)
+
+# Setting label orientation, margins c(bottom, left, top, right) & text size
+par(las=1, mar=c(4, 4, 2, 4), cex=.7) 
+plot.new()
+plot.window(range(x), c(0, 6))
+lines(x, y1)
+lines(x, y2)
+points(x, y1, pch=16, cex=1.4) # Try different cex value? - 'cex value changed to 1.4 from 2.'  
+points(x, y2, pch=21, bg="cornsilk3", cex=2)  # Different background color - 'background color changed to cornsilk3 from white.'
+par(col="gray50", fg="gray50", col.axis="gray50")
+axis(1, at=seq(0, 16, 4)) # What is the first number standing for?
+axis(2, at=seq(0, 6, 2))
+axis(4, at=seq(0, 6, 2))
+box(bty="u")
+mtext("Travel Time (s)", side=1, line=2, cex=0.8)
+mtext("Responses per Travel", side=2, line=2, las=0, cex=0.8)
+mtext("Responses per Second", side=4, line=2, las=0, cex=0.8)
+text(4, 5, "Bird 131")
+par(mar=c(5.1, 4.1, 4.1, 2.1), col="black", fg="black", col.axis="black")
+
+# Histogram
+# Random data
+Y <- rnorm(50)
+# Make sure no Y exceed [-3.5, 3.5]
+Y[Y < -3.5 | Y > 3.5] <- NA # Selection/set range
+x <- seq(-3.5, 3.5, .1)
+dn <- dnorm(x)
+par(mar=c(4.5, 4.1, 3.1, 0))
+hist(Y, breaks=seq(-3.5, 3.5), ylim=c(0, 0.5), 
+     col="gray80", freq=FALSE)
+lines(x, dnorm(x), lwd=2)
+par(mar=c(5.1, 4.1, 4.1, 2.1))
+
+# Barplot
+par(mar=c(2, 3.1, 2, 2.1)) 
+midpts <- barplot(VADeaths, 
+                  col=gray(0.1 + seq(1, 9, 2)/11), 
+                  names=rep("", 4))
+mtext(sub(" ", "\n", colnames(VADeaths)),
+      at=midpts, side=1, line=0.5, cex=0.5)
+text(rep(midpts, each=5), apply(VADeaths, 2, cumsum) - VADeaths/2,
+     VADeaths, 
+     col=rep(c("white", "black"), times=3:2), 
+     cex=0.8)
+par(mar=c(5.1, 4.1, 4.1, 2.1))  
+
+# Boxplot
+par(mar=c(3, 4.1, 2, 0))
+boxplot(len ~ dose, data = ToothGrowth,
+        boxwex = 0.25, at = 1:3 - 0.2,
+        subset= supp == "VC", col="white",
+        xlab="",
+        ylab="tooth length", ylim=c(0,35))
+mtext("Vitamin C dose (mg)", side=1, line=2.5, cex=0.8)
+boxplot(len ~ dose, data = ToothGrowth, add = TRUE,
+        boxwex = 0.25, at = 1:3 + 0.2,
+        
+        subset= supp == "OJ")
+legend(1.5, 9, c("Ascorbic acid", "Orange juice"), 
+       fill = c("white", "gray"), 
+       bty="n")
+par(mar=c(5.1, 4.1, 4.1, 2.1))
+
+# Persp
+x <- seq(-10, 10, length= 30)
+y <- x
+f <- function(x,y) { r <- sqrt(x^2+y^2); 10 * sin(r)/r }
+z <- outer(x, y, f)
+z[is.na(z)] <- 1
+# 0.5 to include z axis label
+par(mar=c(0, 0.5, 0, 0), lwd=0.5)
+persp(x, y, z, theta = 30, phi = 30, 
+      expand = 0.5)
+par(mar=c(5.1, 4.1, 4.1, 2.1), lwd=1)
+
+# Piechart
+par(mar=c(0, 2, 1, 2), xpd=FALSE, cex=0.5)
+pie.sales <- c(0.12, 0.3, 0.26, 0.16, 0.04, 0.12)
+names(pie.sales) <- c("Blueberry", "Cherry",
+                      "Apple", "Boston Cream", "Other", "Vanilla")
+pie(pie.sales, col = gray(seq(0.3,1.0,length=6)))
+```
+
+CEX value changed to 1.4 from the default value in the code - 2. It changed the size of the black dot in the top left plot. It made the black dot smaller. Background color of the dot changed to 'cornsilk3' from the default 'white' in the same plot. It changed the color for the same plot.
+
+```{r}
+library(readr)
+hpindex <- read_csv("happy planet index.csv")
+
+
+lif_exp <- hpindex$`LIFE EXPECTANCY`
+hpi <- hpindex$HPI
+gdp <- hpindex$`GDP PER CAPITA`
+well_being <- hpindex$`WELL BEING`
+ecol_foot <- hpindex$`ECOLOGICAL FOOTPRINT`
+con <- hpindex$`CONTINENT`
+
+par(mfrow=c(1,1))
+gdp_con <- c(300991, 204169, 1092620, 478310, 172329, 46536, 607281, 366241)
+
+piepercent<- round(100*gdp_con/sum(gdp_con), 1)
+par(mfrow=c(1, 1))
+pie(gdp_con, labels = piepercent, main = "GDP Pie Chart by continent", col = rainbow(length(gdp_con)))
+legend("topleft", c("L America","N America and Oceania","W EU","ME Asia", "Africa", 
+                    "South Asia", "East Europe and Cent Asia", "East Asia"), cex = 0.7,
+       fill = rainbow(length(gdp_con)))
+
+
+
+
+```
+
+```{r}
+par(mfrow=c(1,1))
+par(bg = "black", col.axis = "white", col.lab = "white", col.main = "white", mar = c(5, 4, 4, 4) + 0.1)
+
+boxplot(`hpi` ~ `con`, data = hpindex, xlab = "Continent", ylab = "Happiness Index", col = "white", border = "white", fill = 1:8)
+legend("bottomleft", c("1 - L America","2 - N America and Oceania","3 - W EU","4 - ME Asia", "5 - Africa", 
+                       "6 - South Asia", "7 - East Europe and Cent Asia", "8 - East Asia"), bg = "white",col = "white", border = "white", cex = 0.45)
+
+```

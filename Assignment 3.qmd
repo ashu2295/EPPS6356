@@ -1,0 +1,166 @@
+---
+title: "Assignment 3"
+---
+
+```{r}
+data(anscombe)  # Load Anscombe's data
+summary(anscombe)
+```
+
+```{r}
+plot(anscombe$x1,anscombe$y1)
+summary(anscombe)
+```
+
+```{r}
+lm1 <- lm(y1 ~ x1, data=anscombe)
+summary(lm1)
+
+
+```
+
+```{r}
+lm2 <- lm(y2 ~ x2, data=anscombe)
+summary(lm2)
+```
+
+```{r}
+lm3 <- lm(y3 ~ x3, data=anscombe)
+summary(lm3)
+```
+
+```{r}
+lm4 <- lm(y4 ~ x4, data=anscombe)
+summary(lm4)
+```
+
+```{r}
+plot(anscombe$x1,anscombe$y1)
+abline(coefficients(lm1))
+```
+
+```{r}
+plot(anscombe$x2,anscombe$y2)
+abline(coefficients(lm2))
+```
+
+```{r}
+plot(anscombe$x3,anscombe$y3)
+abline(coefficients(lm3))
+```
+
+```{r}
+plot(anscombe$x4,anscombe$y4)
+abline(coefficients(lm4))
+```
+
+```{r}
+ff <- y ~ x
+mods <- setNames(as.list(1:4), paste0("lm", 1:4))
+
+# Plot using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  ## or   ff[[2]] <- as.name(paste0("y", i))
+  ##      ff[[3]] <- as.name(paste0("x", i))
+  mods[[i]] <- lmi <- lm(ff, data = anscombe)
+  print(anova(lmi))
+}
+```
+
+```{r}
+sapply(mods, coef)  # Note the use of this function
+```
+
+```{r}
+lapply(mods, function(fm) coef(summary(fm)))
+```
+
+```{r}
+# Preparing for the plots
+op <- par(mfrow = c(2, 2), mar = 0.1+c(4,4,1,1), oma =  c(0, 0, 2, 0))
+
+# Plot charts using for loop
+for(i in 1:4) {
+  ff[2:3] <- lapply(paste0(c("y","x"), i), as.name)
+  plot(ff, data = anscombe, col = "orchid", pch = 17, bg = "green", cex = 1.2,
+       xlim = c(3, 19), ylim = c(3, 13))
+  abline(mods[[i]], col = "indianred3")
+}
+mtext("Anscombe's 4 Regression data sets", outer = TRUE, cex = 1.5)
+```
+
+Regression 1 - Variables falls on or near the regression line.
+
+Regression 2 - It does not fit the regression line unlike the first one.
+
+Regression 3 - Fits better than the regression 1 but with a single outlier.
+
+Regression 4 - In this one, the outlier falls on the regression line and the most of the variables are concentrated on one value making it a skewed regression overall.
+
+```{r}
+library(tidyverse)
+library(f1dataR)
+```
+
+```{r}
+ggplot(data = anscombe, aes(x = x1, y = y1)) + geom_point(color = "white") +
+  geom_smooth(formula = y~x, method = "lm", se = FALSE, color = "white") +
+  theme_dark_f1(axis = TRUE)+
+  theme(panel.grid = element_blank())
+```
+
+```{r}
+ggplot(anscombe, aes(x = x1, y = y1)) +
+  geom_point(colour = "black", size = 3, shape = 8, fill = "red") +
+  geom_abline(intercept = coef(lm1)[1], slope = coef(lm1)[2], color = "blue") +
+  xlim(3, 19) + ylim(3, 13) +
+  labs(title = "Regression Plot (lm1)",
+       x = "X1",
+       y = "Y1") +
+  theme_minimal()
+```
+
+```{r}
+ggplot(data = anscombe, aes(x = x3, y = y4)) + geom_point(color = "white") +
+  geom_smooth(formula = y~x, method = "lm", se = FALSE, color = "white") +
+  theme_dark_f1(axis = TRUE)+
+  theme(panel.grid = element_blank())
+
+```
+
+```{r}
+ggplot(data = anscombe, aes(x = x2, y = y4)) + geom_point(color = "white") +
+  geom_smooth(formula = y~x, method = "lm", se = FALSE, color = "white") +
+  theme_dark_f1(axis = TRUE)+
+  theme(panel.grid = element_blank())
+
+```
+
+```{r}
+## Download COVID data from OWID GitHub
+owidall = read.csv("https://github.com/owid/covid-19-data/blob/master/public/data/owid-covid-data.csv?raw=true")
+# Deselect cases/rows with OWID
+owidall = owidall[!grepl("^OWID", owidall$iso_code), ]
+# Subset by continent: Europe
+owideu = subset(owidall, continent=="Europe")
+
+#selected_countries <- c("Spain", "Germany", "Ukraine", "Italy")
+#owideu_selected <- subset(owideu, location %in% selected_countries)
+
+# Change NA values to 0 for deaths
+#owideu["new_deaths"][is.na(owideu["new_deaths"])] <- 0
+
+library(ggplot2)
+
+dates <- c("2020-01", "2020-02", "2020-04", "2020-06", "2020-08", 
+           "2020-10", "2020-11", "2021-01", "2021-03", "2021-05", "2021-07", 
+           "2021-08", "2021-10", "2021-12", "2022-04", "2022-06", "2022-09", 
+           "2022-11", "2023-01", "2023-03", "2023-04", "2023-06", "2023-08")
+
+variable <- ggplot(owideu, aes(x=date, y=new_deaths)) + geom_point(color='deeppink') + 
+  scale_y_continuous(limits=c(0, 7000)) + xlab("Date") + ylab("COVID Deaths in Europe (Daily)") +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank())
+
+variable
+```

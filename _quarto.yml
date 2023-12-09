@@ -3,14 +3,18 @@ project:
   output-dir: docs
 
 website:
-  title: "Data Visualization"
+  title: "Ashutosh's Website"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - Assignment 1.qmd
+      - Assignment 2.qmd
+      - Assignment 3.qmd
       - Assignment 4.qmd
       - Assignment 5.qmd
+      - Assignment 6.qmd
+      - finalprojdash.qmd
 
 format:
   html:
