@@ -1,0 +1,47 @@
+---
+title: "Proposal Presentation"
+---
+
+# Proposal Presentation
+
+Group Members: Mumuksha Singla, Ashutosh Patel, Priya Nalliah & Rishika Katamneni
+
+**Area/Topic:/Topic:**
+
+Formula One (or F1) has been one of the premier forms of racing around the world since its inaugural season in 1950. The word "formula" represents the set of rules that the participant racers must conform to. During a Formula One season, there are a series of races known as the Grand Prix, which occur worldwide on separately built circuits and public roads. This sport has genuine global appeal and has grown into a huge business enterprise drawing a lot of sponsorship and commercialism. The plethora of data from races is intriguing to investigate and determine if there are patterns that a racer follows on the path to victory.
+
+There is not a large amount of academic literature related to Formula One and the studies on the topic cover a wide range of topics such as the impact on tourism, analyses of specific tracks, computational simulations of race results, and other areas (Bell et al. 2016). In the paper by Bell et al, random coefficient models were used to find the best Formula One (F1) driver based on the relative importance of team and drive effects, weather, and other factors. The question we want to explore and visualize is also finding the best F1 driver, however, we will go in a different direction by inputting other factors such as total podiums, height, fastest laps, and more. Our main goal is to focus on diverse ways to display the vast amount of information from Formula One races so that people can easily grasp the results.
+
+We want to analyze global Formula One Racing data statistics and then visualize charts for different categories such as most wins for racers, comparing various circuits, and comparing teammate statistics over the years. The best F1 driver will also be evaluated by considering certain data statistics such as their qualifying time, finishing position, and more. 
+
+**Data:**
+
+The dataset will be manually created by collecting and combining data from different sources such as the Formula 1 official site and Stats F1. The variables included in the data are driver name, country, wins, pole position, WDC, grand slams, most wins in a season, consecutive wins, pole wins, qualifying gaps, and fastest laps. These are predominantly driver-specific statistics. We will also be looking at circuit-specific data which would include variables such as elevation, track length, and altitude.
+
+**Research Statement:**
+
+Through our report, we are trying to use various indicators to determine who the best racer is. Hence, our research statement would be who is the best Formula One driver in the dataset and how can this data from Formula One concisely be represented visually? This includes determining the best racer within the calendar year and furthering that result by determining the best racer in each continent.
+
+We are also interested in exploring the relationship between teammates under the same constructor. It would be interesting to observe the dynamics between teammates by comparing their individual finishing and qualifying stats. 
+
+**Method:**
+
+Primarily we will utilize various data visualization charts to summarize the results of Formula One Races. For instance, we will create a bar graph in the shape of a racing circuit to demonstrate their rankings across Europe (Figure 1).
+
+Furthermore, linear regression will be used to compare various factors for each race driver such as height, fastest laps, and total points. for the output variable of total grand slams. This analysis will be a way to determine the best Formula driver within the dataset.
+
+![](images/image.png){width="358"}
+
+**Figure 1.** Visual sample of the bar graph we will create using the data.
+
+We would use colors representing the flags of each nation used, and if possible, we may include a dynamic interpretation of the average speeds and times demonstrated by each racer through an animation package in R. Variables such as elevation, track length, and altitude can be demonstrated through a 3D model of this graph as well. 
+
+**References**
+
+Bell, Smith, J., Sabel, C. E., & Jones, K. (2016). Formula for success: Multilevel modeling of 
+
+Formula One Driver and Constructor performance, 1950--2014. Journal of Quantitative Analysis in Sports, 12(2), 99--112. https://doi.org/10.1515/jqas-2015-0050
+
+F1 - the Official Home of Formula 1 Racing. Formula 1 - The Official F1 Website, 
+
+www.formula1.com
