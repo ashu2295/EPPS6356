@@ -6,31 +6,35 @@ website:
   title: "Ashutosh's Website"
   navbar:
     left:
+  
       - href: index.qmd
         text: Home
-      menu:  
-       - href: EPPS6356_Presentation.pdf  
-         text: Final Project Presentation
-       - href: finalproject.html
-         text: Final Project
-       - text: Assignments
-         menu:
-          - href: Assignment 1.qmd
-            text: Assignment 1
-          - href: Assignment 2.qmd
-            text: Assignment 2
-          - href: Assignment 3.qmd
-            text: Assignment 3
-          - href: Assignment 4.qmd
-            text: Assignment 4
-          - href: Assignment 5.qmd
-            text: Assignment 5
-          - href: Assignment 8.qmd
-            text: Assignment 8
-          - href: Assignment 9.qmd
-            text: Assignment 9
-          - href: Assignment 10.qmd
-            text: Assignment 10
+      - text: Group Project
+        menu:
+          - href: Proposal.qmd
+            text: Proposal
+          - href: EPPS6356_Presentation.pdf  
+            text: Final Project Presentation
+          - href: finalproject.html
+            text: Final Project
+      - text: Assignments
+        menu:
+        - href: Assignment 1.qmd
+          text: Assignment 1
+        - href: Assignment 2.qmd
+          text: Assignment 2
+        - href: Assignment 3.qmd
+          text: Assignment 3
+        - href: Assignment 4.qmd
+          text: Assignment 4
+        - href: Assignment 5.qmd
+          text: Assignment 5
+        - href: Assignment 8.qmd
+          text: Assignment 8
+        - href: Assignment 9.qmd
+          text: Assignment 9
+        - href: Assignment 10.qmd
+          text: Assignment 10
       
 format:
   html:
