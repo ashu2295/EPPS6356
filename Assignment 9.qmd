@@ -1,0 +1,55 @@
+---
+title: "Assignment 9"
+---
+
+```{r}
+library(quantmod)
+```
+
+```{r}
+library(dygraphs)
+library(TSstudio)
+
+AAPL <- getSymbols("AAPL",
+                    from = "2011/01/01",
+                    to = "2020/12/31",
+                    periodicity = "daily",
+                    auto.assign = FALSE)
+
+
+sum(is.na(AAPL))
+```
+
+```{r}
+class(AAPL)
+```
+
+```{r}
+head(AAPL)
+```
+
+```{r}
+chartSeries(AAPL, type = c("auto", "candlesticks", "matchsticks", "bars","line"), subset='last 3 months',theme = "white")
+```
+
+```{r}
+barChart(AAPL,multi.col=TRUE,theme = 'white')
+```
+
+```{r}
+quantmod::getSymbols("AAPL", src="yahoo")
+```
+
+```{r}
+class(AAPL)
+```
+
+```{r}
+ts_plot(AAPL$AAPL.Adjusted, 
+        title = "Apple Stock prices",
+        Ytitle = "")
+```
+
+```{r}
+
+```
